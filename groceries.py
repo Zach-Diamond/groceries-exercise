@@ -25,12 +25,75 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
-print(products)
+#print(products)
 # pprint(products)
 
 # TODO: write some Python code here to produce the desired output
+
+# print ('--------------')
+# print('THERE ARE '+str(len(products))+' PRODUCTS:')
+# print ('--------------')
+
+# for i in range(0,len(products)):
+#     print(' + '
+#     +products[i]['name']
+#     +' ($'
+#     +str(format(products[i]['price'],'.2f')) #Convert to string, format 2 decimals
+#     +')')
+
+
+# for i in range(0,len(products)):
+
+# #List of Departments
+# deptlist = products[i]['department'].capitalize()
+
+# #Filter unique departments
+# def uniquedep(department):
+#     possible = ['Snacks', 'Pantry', 'Beverages', 'Frozen', 'Personal care', 'Dairy eggs', 'Household', 'Babies', 'Meat seafood', 'Dry goods pasta']
+# if department in possible:
+#         return True
+#     else:
+#         return False
+
+# print ('--------------')
+# print('THERE ARE '+str(len(products))+' PRODUCTS:')
+# print ('--------------')
+
+# for prod in products:
+#     name = "+ "+prod["name"].capitalize()
+#     price = (" ($"
+#         +str(
+#             format(prod["price"],'.2f')
+#             )
+#         +')')
+#     print (name+price)
+
+
+
+# print ('--------------')
+# print('THERE ARE '+str(len(products))+' PRODUCTS:')
+# print ('--------------')
+
+# for prod in products:
+#     name = "+ "+prod["name"].capitalize()
+#     price = " (${0:.2f})".format(prod["price"])
+#     print (name+price)
+
+
+
+departments = []
+
+for p in products:
+    #departments.append(p["department"])
+    if p["department"] not in departments:
+        departments.append(p["department"])
+
+dept_count = len(departments)
+
 print ('--------------')
-print('THERE ARE 20 PRODUCTS:')
+print('THERE ARE ' +str(dept_count) +' DEPARTMENTS:')
 print ('--------------')
-for i in range(0,20):
-     print(' + '+products[i]['name']+' ($'+str(products[i]['price'])+')')
+
+
+for d in departments:
+    print(d.capitalize())
