@@ -25,6 +25,68 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
+
+
+print ('--------------')
+print('THERE ARE '+str(len(products))+' PRODUCTS:')
+print ('--------------')
+
+for prod in products:
+    name = "+ "+prod["name"].title()
+    price = " (${0:.2f})".format(prod["price"])
+    print (name+price)
+
+######################################################################
+
+departments = []
+
+for p in products:
+    if p["department"] not in departments:
+        departments.append(p["department"])
+
+dept_count = len(departments)
+
+unique_departments = list(set(departments))
+
+print ('--------------')
+print('THERE ARE ' +str(dept_count) +' DEPARTMENTS:')
+print ('--------------')
+
+unique_departments.sort()
+
+for d in unique_departments:
+    totalprod = [p for p in products if p["department"] == d]
+        #Return P(P1) for every P (P2) in Products if P (P3) has same name as department
+        #For each item in our list of products, return that item if its
+        #department equals the department name we are looking at (d in for d)
+    totalprodcount = str(len(totalprod))
+    print(" + "+
+    d.title()
+    +" ("
+    + totalprodcount
+    +" products)"
+    )
+    
+
+
+
+
+##################################################
+##################################################
+##################################################
+
+# for d in unique_departments:
+#     print(d.title())
+
+
+
+
+
+
+
+
+
+
 #print(products)
 # pprint(products)
 
@@ -69,43 +131,3 @@ products = [
 #     print (name+price)
 
 
-
-# print ('--------------')
-# print('THERE ARE '+str(len(products))+' PRODUCTS:')
-# print ('--------------')
-
-# for prod in products:
-#     name = "+ "+prod["name"].capitalize()
-#     price = " (${0:.2f})".format(prod["price"])
-#     print (name+price)
-
-
-
-departments = []
-
-for p in products:
-    if p["department"] not in departments:
-        departments.append(p["department"])
-
-dept_count = len(departments)
-
-unique_departments = list(set(departments))
-
-print ('--------------')
-print('THERE ARE ' +str(dept_count) +' DEPARTMENTS:')
-print ('--------------')
-
-unique_departments.sort()
-
-for d in unique_departments:
-    totalprod = [p for p in products if p["department"] == d]
-    totalprodcount =str(len(totalprod))
-    print(" + "+
-    d.title()
-    +" ("
-    + totalprodcount
-    +" products)"
-    )
-    
-# for d in unique_departments:
-#     print(d.title())
